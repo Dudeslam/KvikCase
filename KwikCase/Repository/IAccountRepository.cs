@@ -3,7 +3,7 @@ using KwikCase.Models;
 
 namespace Kwik.Repository
 {
-    public interface IAccountRepository<Account>
+    public interface IAccountRepository
     {
         Account? GetByID(string id);
         IEnumerable<Account> GetAll();

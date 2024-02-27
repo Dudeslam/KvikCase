@@ -5,11 +5,16 @@ using Newtonsoft.Json;
 
 namespace Kwik.Repository
 {
-    public class AccountRepo<T> : IAccountRepository<Account> where T : class
+    public class AccountRepo : IAccountRepository
     {
-        private readonly PersonContext _context = null!;
+        private readonly PersonContext _context = new PersonContext();
         private  List<Account> _dbSet = null!;
 
+        public AccountRepo(PersonContext context)
+        {
+            _context = context;
+            _dbSet = new List<Account>(_context.PersonData.OrderBy(x=>x.UserId));
+        }
 
         public bool Add(Account entity)
         {
@@ -27,9 +32,13 @@ namespace Kwik.Repository
 
         public bool Delete(Account entity)
         {
+            var entityToDelete = _dbSet.FirstOrDefault(x =>  x.UserId == entity.UserId);
+            if (entityToDelete == null) return false;
+
             try
             {
-                _context.Remove(entity);
+                _context.Attach(entityToDelete);
+                _context.Remove(entityToDelete);
                 _context.SaveChanges();
                 return true;
             }
@@ -53,6 +62,9 @@ namespace Kwik.Repository
                     LastName = acc.LastName,
                     FirstName = acc.FirstName,
                     Email = acc.Email,
+                    DateOfBirth = acc.DateOfBirth,
+                    Phone = acc.Phone,
+                    Profession = acc.Profession
                 };
             }
 
@@ -69,13 +81,19 @@ namespace Kwik.Repository
                 FirstName = account.FirstName,
                 LastName = account.LastName,
                 Email = account.Email,
+                DateOfBirth = account.DateOfBirth,
+                Phone = account.Phone,
+                Profession = account.Profession
             } : null;
         }
 
 
         public void Update(Account entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+            var entityToUpdate = _dbSet.FirstOrDefault(x => x.UserId == entity.UserId);
+            if (entityToUpdate == null) return;
+
+            _dbSet.Add(entityToUpdate);
             _context.SaveChanges();
         }
     }

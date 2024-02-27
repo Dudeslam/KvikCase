@@ -8,9 +8,9 @@ namespace KwikCase.Services
     public class AccountService : IAccountService
     {
         private AccountMapper accMapper = new AccountMapper();
-        private readonly IAccountRepository<Account> _Accountrepository;
+        private readonly IAccountRepository _Accountrepository;
 
-        public AccountService(IAccountRepository<Account> AccountRepository)
+        public AccountService(IAccountRepository AccountRepository)
         {
             _Accountrepository = AccountRepository;
         }

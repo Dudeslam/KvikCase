@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KwikCase")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1b7a3a5a6c36724544c925cad420b2de4fb5f07")]
 [assembly: System.Reflection.AssemblyProductAttribute("KwikCase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KwikCase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

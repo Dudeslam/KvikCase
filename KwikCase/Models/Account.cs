@@ -5,7 +5,6 @@ namespace KwikCase.Models
 {
     public partial class Account
     {
-        public string? Indexo { get; set; }
 
         public string UserId { get; set; } = null!;
 
