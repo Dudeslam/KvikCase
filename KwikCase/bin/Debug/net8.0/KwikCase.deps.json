@@ -19,7 +19,6 @@
           "Microsoft.Extensions.Hosting": "6.0.1",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.5",
           "Newtonsoft.Json": "13.0.3",
-          "StackExchange.Redis": "2.7.20",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -483,7 +482,7 @@
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.2",
-          "StackExchange.Redis": "2.7.20"
+          "StackExchange.Redis": "2.6.122"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
@@ -989,15 +988,14 @@
           }
         }
       },
-      "StackExchange.Redis/2.7.20": {
+      "StackExchange.Redis/2.6.122": {
         "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Pipelines.Sockets.Unofficial": "2.2.8"
         },
         "runtime": {
           "lib/net6.0/StackExchange.Redis.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.7.20.59961"
+            "fileVersion": "2.6.122.38350"
           }
         }
       },
@@ -1820,12 +1818,12 @@
       "path": "sqlitepclraw.provider.e_sqlite3/2.1.6",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512"
     },
-    "StackExchange.Redis/2.7.20": {
+    "StackExchange.Redis/2.6.122": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4ogjXwVp/7Gi/dNjGn1SWVxjrS0J0izVg8LeMVWSF3/zS3GH4lwtEMehQ9VEatQAqRbZ0i+OU+Z2obLUTYEoYg==",
-      "path": "stackexchange.redis/2.7.20",
-      "hashPath": "stackexchange.redis.2.7.20.nupkg.sha512"
+      "sha512": "sha512-wp7mvGpFXaevfZ07/SDeh/6YHUJEgwJIGyjbDWKBYbPwKMJQYFz9zFEmBptqtVzqvSgft5nlewwutoaMaG0LPA==",
+      "path": "stackexchange.redis/2.6.122",
+      "hashPath": "stackexchange.redis.2.6.122.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",

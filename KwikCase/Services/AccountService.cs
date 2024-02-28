@@ -14,16 +14,29 @@ namespace KwikCase.Services
         {
             _Accountrepository = AccountRepository;
         }
-        public List<AccountDTO> GetAccounts()
+        public async Task<List<AccountDTO>> GetAccounts()
         {
             List<AccountDTO> accounts = new List<AccountDTO>();
-            _Accountrepository.GetAll().ToList().ForEach(x => accounts.Add(new AccountDTO(x.UserId, x.FirstName, x.LastName, x.Sex, x.Email, x.Phone, DateTime.Parse(x.DateOfBirth), x.Profession)));
+            var Items = await _Accountrepository.GetAll();
+            Items.ToList().ForEach(x => accounts.Add(
+                new AccountDTO
+                    (
+                        x.UserId,
+                        x.FirstName,
+                        x.LastName,
+                        x.Sex,
+                        x.Email,
+                        x.Phone,
+                        DateTime.Parse(x.DateOfBirth),
+                        x.Profession
+                    )));
+
             return accounts;
         }
 
-        public AccountDTO? GetAccount(string id)
+        public async Task<AccountDTO?> GetAccount(string id)
         {
-            var accData = _Accountrepository.GetByID(id);
+            var accData = await _Accountrepository.GetByIDAsync(id);
             return accData != null ? AccountMapper.ToDTO(accData) : null;
         }
 

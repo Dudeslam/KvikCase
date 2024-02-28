@@ -1,6 +1,19 @@
-version: '3.4'
+﻿version: '3.4'
 
 services:
+  redis:
+    image: redis:latest
+    container_name: redis-kvikcase
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_volume_data:/data
+    environment:
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+      - RedisConnection=redis-cache
+
   kwikcase:
     image: ${DOCKER_REGISTRY-}kwikcase
     build:
@@ -28,6 +41,9 @@ services:
       - sqlite_data:/data/db
     container_name: sqlitebrowser
 
+
+
 volumes:
   sqlite_data:
     external: true
+  redis_volume_data:

@@ -5,9 +5,9 @@ namespace KwikCase.Services
     public interface IAccountService
     {
 
-        public List<AccountDTO> GetAccounts();
+        public Task<List<AccountDTO>> GetAccounts();
 
-        public AccountDTO? GetAccount(string id);
+        public Task<AccountDTO?> GetAccount(string id);
 
         public bool UpdateAccount(AccountDTO acc);
 

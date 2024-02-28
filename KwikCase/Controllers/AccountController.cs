@@ -19,16 +19,16 @@ namespace Kwik.Controllers
 
 
         [HttpGet("Accounts")]
-        public IActionResult GetAccounts()
+        public async Task<IActionResult> GetAccounts()
         {
-            List<AccountDTO> accounts = _AccountService.GetAccounts();
-            return accounts.Count() != 0 ? Ok(accounts) : NotFound();
+            var accounts = await _AccountService.GetAccounts();
+            return Ok(accounts);
         }
 
         [HttpGet("Accounts/{id}")]
-        public IActionResult GetAccountData(string id)
+        public async Task<IActionResult> GetAccountData(string id)
         {
-            var accountData = _AccountService.GetAccount(id);
+            var accountData = await _AccountService.GetAccount(id);
             return accountData != null ? Ok(accountData) : NotFound();
         }
 
@@ -42,6 +42,7 @@ namespace Kwik.Controllers
         [HttpDelete("Accounts/{id}")]
         public IActionResult DeleteAccount(string id)
         {
+
             return _AccountService.DeleteAccount(id) == true ? Ok(true) : BadRequest();
         }
 
